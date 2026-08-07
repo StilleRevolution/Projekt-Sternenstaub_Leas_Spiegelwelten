@@ -10,6 +10,7 @@
     <meta name="description" content="Vom ökologischen & somatischen Kollaps zur regenerativen Praxis. Leas Spiegelwelten, 360°-Triangulation & Exoskelett-Analytik." />
     <meta name="author" content="Projekt Sternenstaub" />
     <meta name="theme-color" content="#060714" />
+    <link rel="canonical" href="https://stillerevolution.github.io/Projekt-Sternenstaub_Leas_Spiegelwelten/" />
 
     <!-- Dynamic SVG Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9a35c' d='M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z'/%3E%3C/svg%3E" />
@@ -165,17 +166,83 @@
         transform: scale(1.05);
       }
 
+      /* Scroll-Fortschrittsanzeige */
+      #scroll-progress {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.1s linear;
+      }
+
+      /* Header: mehr Tiefe nach dem Scrollen */
+      #site-header {
+        transition: box-shadow 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+      }
+      #site-header.is-scrolled {
+        background-color: rgba(6, 7, 20, 0.94);
+        border-color: rgba(217, 163, 92, 0.14);
+        box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6);
+      }
+
+      /* "Die 4 Stile" — dezentes, atmendes Leuchten */
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 12px rgba(217,163,92,0.2); }
+        50% { box-shadow: 0 0 24px rgba(217,163,92,0.45); }
+      }
+      .btn-glow { animation: pulse-glow 3.4s ease-in-out infinite; }
+      .btn-glow:hover { animation-play-state: paused; box-shadow: 0 0 26px rgba(217,163,92,0.55); }
+
+      /* Hero Scroll-Hinweis */
+      @keyframes drift-down {
+        0%, 100% { transform: translateY(0); opacity: 0.55; }
+        50% { transform: translateY(7px); opacity: 1; }
+      }
+      .scroll-cue { animation: drift-down 2.4s ease-in-out infinite; }
+
+      /* Zurück-nach-oben Button */
+      #back-to-top {
+        opacity: 0;
+        transform: translateY(12px) scale(0.9);
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      #back-to-top.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      /* Audio Equalizer (Now-Playing Indikator) */
+      .eq-bar {
+        display: block;
+        width: 3px;
+        height: 100%;
+        background: currentColor;
+        border-radius: 999px;
+        transform-origin: bottom;
+        animation: eq-bounce 0.85s ease-in-out infinite;
+      }
+      #eq-bars.is-paused .eq-bar { animation-play-state: paused; transform: scaleY(0.22); }
+      @keyframes eq-bounce {
+        0%, 100% { transform: scaleY(0.25); }
+        50% { transform: scaleY(1); }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
         .glass, .story-image, .modal-panel { transition: none !important; transform: none !important; }
+        .btn-glow, .scroll-cue, .eq-bar { animation: none !important; }
+        #back-to-top { transition: opacity 0.2s linear; transform: none !important; }
       }
     </style>
 </head>
 <body class="font-sans antialiased text-parchment-100">
 
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-gold-500 focus:text-void-950 focus:px-5 focus:py-2.5 focus:rounded-full focus:font-medium">Zum Inhalt springen</a>
-    
+
+    <!-- Lesefortschritt -->
+    <div id="scroll-progress" class="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold-500 via-amber-500 to-gold-300 z-[60]" aria-hidden="true"></div>
+
     <!-- Partikel Hintergrund -->
     <canvas id="stardust-canvas" aria-hidden="true"></canvas>
 
@@ -188,21 +255,34 @@
                 </div>
                 <div>
                     <span class="block font-serif text-lg tracking-wider text-parchment-100 group-hover:text-gold-300 transition-colors duration-300">Leas Spiegelwelten</span>
-                    <span class="block text-[10px] uppercase tracking-widest text-gold-500/60">Projekt Sternenstaub</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-gold-300">Projekt Sternenstaub</span>
                 </div>
             </a>
             
-            <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide text-parchment-100/80">
+            <nav class="hidden lg:flex items-center gap-6 text-sm tracking-wide text-parchment-100/80" aria-label="Hauptnavigation">
+                <a href="https://stillerevolution.github.io/Projekt-Sternenstaub-Landingpage-v1/" target="_blank" rel="noopener noreferrer" class="group/home flex items-center gap-1.5 pr-6 mr-1 border-r border-white/10 text-parchment-100/60 hover:text-gold-300 transition-colors duration-300">
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/home:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    <span>Startseite</span>
+                </a>
                 <a href="#audio-section" class="hover:text-gold-300 transition-colors duration-300">Klangraum</a>
                 <a href="#kapitel-1" class="hover:text-gold-300 transition-colors duration-300">Wachhund</a>
                 <a href="#kapitel-2" class="hover:text-gold-300 transition-colors duration-300">Opossum</a>
                 <a href="#kapitel-3" class="hover:text-gold-300 transition-colors duration-300">Eule & Trio</a>
-                <button type="button" data-modal-open="modal-erziehungsstile" class="px-5 py-2 rounded-full border border-gold-500/30 text-gold-500 hover:bg-gold-500 hover:text-void-950 transition-all duration-300 font-medium hover:shadow-[0_0_20px_rgba(217,163,92,0.4)]">
+                <button type="button" data-modal-open="modal-erziehungsstile" class="btn-glow px-5 py-2 rounded-full border border-gold-500/50 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-void-950 transition-colors duration-300 font-medium">
                     Die 4 Stile
                 </button>
             </nav>
+
+            <button type="button" data-modal-open="modal-mobile-nav" aria-controls="modal-mobile-nav" aria-expanded="false" aria-label="Menü öffnen" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full border border-gold-500/25 text-gold-300 hover:border-gold-500/50 hover:bg-gold-500/10 transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
         </div>
     </header>
+
+    <!-- Zurück nach oben -->
+    <button type="button" id="back-to-top" aria-label="Nach oben scrollen" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full glass glass-gold flex items-center justify-center text-gold-500 hover:shadow-[0_0_20px_rgba(217,163,92,0.4)]">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
 
     <main id="main-content" tabindex="-1" class="relative z-10 pt-20 pb-24">
         
@@ -217,6 +297,10 @@
                     Keine Metapher ohne empirischen Grund. Ein tiefer Blick in die Architektur unseres Nervensystems — wie wir Regulation erlernen, Grenzen setzen und zu einem sicheren Raum für uns selbst und andere werden.
                 </p>
             </div>
+            <a href="#audio-section" class="scroll-cue absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-parchment-100/55 hover:text-gold-300 transition-colors duration-300" aria-label="Weiter zum Klangraum scrollen">
+                <span class="text-[10px] uppercase tracking-[0.3em]">Scrollen</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+            </a>
         </section>
 
         <!-- AUDIO PLAYER SECTION -->
@@ -239,9 +323,16 @@
                     <audio id="main-audio" src="leas%20Spiegelwelten.mp3" preload="metadata"></audio>
                     
                     <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
-                        <div>
-                            <span class="block text-sm font-bold text-parchment-100">Leas Spiegelwelten</span>
-                            <span class="text-xs text-gold-500/80">Projekt Sternenstaub</span>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <span class="block text-sm font-bold text-parchment-100">Leas Spiegelwelten</span>
+                                <span class="text-xs text-gold-300">Projekt Sternenstaub</span>
+                            </div>
+                            <div id="eq-bars" class="is-paused flex items-end gap-[3px] h-3.5 text-gold-500" aria-hidden="true">
+                                <span class="eq-bar" style="animation-delay: 0ms"></span>
+                                <span class="eq-bar" style="animation-delay: 180ms"></span>
+                                <span class="eq-bar" style="animation-delay: 340ms"></span>
+                            </div>
                         </div>
                         <span class="text-[10px] uppercase tracking-widest px-2 py-1 rounded bg-gold-500/20 text-gold-500 border border-gold-500/30">HQ MP3</span>
                     </div>
@@ -263,7 +354,7 @@
 
                     <div class="space-y-2 mb-4">
                         <input type="range" id="seek-bar" value="0" min="0" max="100" class="w-full" aria-label="Fortschritt" />
-                        <div class="flex justify-between text-xs text-parchment-100/50">
+                        <div class="flex justify-between text-xs text-parchment-100/70">
                             <span id="time-current">0:00</span>
                             <span id="time-duration">--:--</span>
                         </div>
@@ -375,9 +466,20 @@
 
     <!-- FOOTER -->
     <footer class="relative z-10 border-t border-white/10 py-12 px-6 bg-void-950">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-parchment-100/50 tracking-wide">
-            <p><a href="https://stillerevolution.github.io/Dein-innerer-Kompass-ab-7-Jahre-bis-zum-Finale/" target="_blank" rel="noopener noreferrer" class="hover:text-gold-500 transition-colors font-bold uppercase">Projekt Sternenstaub</a></p>
-            <p>Ein Manifest der Co-Regulation & empirischen Strukturierung.</p>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-xs tracking-wide">
+            <a href="https://stillerevolution.github.io/Dein-innerer-Kompass-ab-7-Jahre-bis-zum-Finale/" target="_blank" rel="noopener noreferrer" class="group/compass inline-flex flex-col items-center md:items-start gap-1.5">
+                <span class="inline-flex items-center gap-2 font-bold uppercase text-parchment-100/80 group-hover/compass:text-gold-500 transition-colors duration-300">
+                    <svg class="w-3.5 h-3.5 text-gold-500/80 group-hover/compass:text-gold-500 group-hover/compass:rotate-[25deg] transition-all duration-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.5" stroke-width="1.5" />
+                        <path d="M14.8 9.2l-1.6 4-4 1.6 1.6-4z" stroke-width="1.3" stroke-linejoin="round" />
+                    </svg>
+                    Projekt Sternenstaub
+                </span>
+                <span class="normal-case tracking-normal text-[11px] font-normal italic text-parchment-100/65 group-hover/compass:text-gold-300/90 transition-colors duration-300">
+                    Ein weiterer Pfad — zu deinem inneren Kompass
+                </span>
+            </a>
+            <p class="text-parchment-100/70 text-center">Ein Manifest der Co-Regulation & empirischen Strukturierung.</p>
             <button type="button" data-modal-open="modal-exoskelett" class="px-5 py-2 bg-white/5 hover:bg-gold-500/10 border border-white/10 hover:border-gold-500/30 rounded-full text-parchment-100/70 hover:text-gold-500 transition-all font-bold uppercase tracking-widest">
                 Exoskelett (Triangulation)
             </button>
@@ -387,6 +489,30 @@
     <!-- ============================================== -->
     <!-- MODALS (WISSENSCHAFT & GESCHICHTEN)            -->
     <!-- ============================================== -->
+
+    <!-- Modal Mobile Navigation -->
+    <div id="modal-mobile-nav" class="modal hidden fixed inset-0 z-[100] overflow-y-auto lg:hidden" role="dialog" aria-modal="true" aria-label="Navigationsmenü">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/90 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto mt-24 md:mt-32 w-[calc(100%-2.5rem)] max-w-sm glass glass-gold rounded-3xl p-8">
+            <button type="button" data-modal-close aria-label="Menü schließen" class="absolute top-5 right-5 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="block text-[10px] uppercase tracking-widest text-gold-300 mb-6">Navigation</span>
+            <nav class="flex flex-col text-lg font-serif" aria-label="Hauptnavigation Mobil">
+                <a href="https://stillerevolution.github.io/Projekt-Sternenstaub-Landingpage-v1/" target="_blank" rel="noopener noreferrer" data-modal-close class="flex items-center gap-2.5 py-3.5 border-b border-white/10 text-parchment-100/80 hover:text-gold-300 transition-colors">
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Startseite
+                </a>
+                <a href="#audio-section" class="py-3.5 border-b border-white/10 text-parchment-100/80 hover:text-gold-300 transition-colors">Klangraum</a>
+                <a href="#kapitel-1" class="py-3.5 border-b border-white/10 text-parchment-100/80 hover:text-gold-300 transition-colors">Wachhund</a>
+                <a href="#kapitel-2" class="py-3.5 border-b border-white/10 text-parchment-100/80 hover:text-gold-300 transition-colors">Opossum</a>
+                <a href="#kapitel-3" class="py-3.5 border-b border-white/10 text-parchment-100/80 hover:text-gold-300 transition-colors">Eule & Trio</a>
+                <button type="button" data-modal-open="modal-erziehungsstile" class="mt-6 px-5 py-3 rounded-full border border-gold-500/50 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-void-950 transition-all duration-300 font-sans text-sm font-medium text-center">
+                    Die 4 Stile
+                </button>
+            </nav>
+        </div>
+    </div>
 
     <!-- Modal Erziehungsstile -->
     <div id="modal-erziehungsstile" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
@@ -401,7 +527,7 @@
                 <!-- Stil 1 -->
                 <div class="bg-void-900/60 p-6 rounded-2xl border border-gold-500/40 hover:border-gold-500 transition-colors">
                     <h4 class="font-serif text-xl text-gold-500 mb-1">1. Autoritativ (Goldstandard)</h4>
-                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Hohe Wärme + Klare Grenzen</span>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/70 mb-3">Hohe Wärme + Klare Grenzen</span>
                     <p class="text-sm text-parchment-100/80 leading-relaxed">
                         Entspricht der Welt mit dem sicheren Gartenzaun. Feste Leitplanken bei gleichzeitigem tiefem Eingehen auf emotionale Bedürfnisse. Fördert Frustrationstoleranz und Selbstregulation. Die "Weise Eule" kann hier optimal reifen.
                     </p>
@@ -409,7 +535,7 @@
                 <!-- Stil 2 -->
                 <div class="bg-void-900/60 p-6 rounded-2xl border border-amber-500/40 hover:border-amber-500 transition-colors">
                     <h4 class="font-serif text-xl text-amber-500 mb-1">2. Permissiv</h4>
-                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Hohe Wärme + Kaum Grenzen</span>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/70 mb-3">Hohe Wärme + Kaum Grenzen</span>
                     <p class="text-sm text-parchment-100/80 leading-relaxed">
                         Das Fehlen jeglicher Reibung aus Angst vor Konflikten. Das Kind übernimmt unbewusst die Führung, was das Nervensystem chronisch überlastet ("Knurrender Wachhund"). Führt oft zu impulsiver Dysregulation.
                     </p>
@@ -417,7 +543,7 @@
                 <!-- Stil 3 -->
                 <div class="bg-void-900/60 p-6 rounded-2xl border border-white/10 hover:border-white/30 transition-colors">
                     <h4 class="font-serif text-xl text-parchment-100 mb-1">3. Autoritär</h4>
-                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Geringe Wärme + Starre Grenzen</span>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/70 mb-3">Geringe Wärme + Starre Grenzen</span>
                     <p class="text-sm text-parchment-100/80 leading-relaxed">
                         Dominanz und Befehl ohne emotionalen Dialog. Das System des Kindes verharrt in dauerhafter Wachsamkeit vor Bestrafung, echte Co-Regulation findet nicht statt. Anpassung geschieht aus Angst, nicht aus Verständnis.
                     </p>
@@ -545,7 +671,7 @@
             <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <span class="text-xs uppercase tracking-widest text-parchment-100/50 font-bold mb-2 block">Systemische Selbstreflexion</span>
+            <span class="text-xs uppercase tracking-widest text-parchment-100/70 font-bold mb-2 block">Systemische Selbstreflexion</span>
             <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-8">Das Exoskelett & Triangulation</h3>
             
             <div class="space-y-6 text-sm text-parchment-100/80 leading-relaxed border-l-2 border-gold-500/30 pl-6">
@@ -574,22 +700,42 @@
             function setupModals() {
                 const triggers = document.querySelectorAll('[data-modal-open]');
                 const closers = document.querySelectorAll('[data-modal-close]');
-                
+                let lastFocusedElement = null;
+
                 function openModal(id) {
                     const modal = document.getElementById(id);
                     if (!modal) return;
+
+                    // Falls bereits ein anderes Modal offen ist (z.B. Mobile-Menü → Erziehungsstile),
+                    // dieses geräuschlos schließen, ohne den Fokus zurückzugeben.
+                    document.querySelectorAll('.modal.modal-active').forEach(m => {
+                        if (m !== modal) closeModal(m, false);
+                    });
+
+                    lastFocusedElement = document.activeElement;
                     modal.classList.remove('hidden');
                     void modal.offsetWidth;
                     modal.classList.add('modal-active');
                     document.body.classList.add('no-scroll');
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(btn => btn.setAttribute('aria-expanded', 'true'));
+
+                    const focusTarget = modal.querySelector('[data-modal-close]');
+                    if (focusTarget) setTimeout(() => focusTarget.focus(), 100);
                 }
 
-                function closeModal(modal) {
+                function closeModal(modal, restoreFocus = true) {
                     modal.classList.remove('modal-active');
+                    document.querySelectorAll(`[aria-controls="${modal.id}"]`).forEach(btn => btn.setAttribute('aria-expanded', 'false'));
                     setTimeout(() => {
                         modal.classList.add('hidden');
-                        document.body.classList.remove('no-scroll');
+                        // Nur entsperren, wenn wirklich kein Modal mehr aktiv ist (verhindert Konflikte bei verschachtelten Aufrufen).
+                        if (!document.querySelector('.modal.modal-active')) {
+                            document.body.classList.remove('no-scroll');
+                        }
                     }, 500);
+                    if (restoreFocus && lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                        lastFocusedElement.focus();
+                    }
                 }
 
                 triggers.forEach(trigger => {
@@ -603,6 +749,19 @@
                     closer.addEventListener('click', (e) => {
                         const modal = closer.closest('.modal');
                         if(modal) closeModal(modal);
+                    });
+                });
+
+                // Anker-Links innerhalb des Mobile-Menüs: Menü schließen, dann sanft zum Ziel scrollen.
+                document.querySelectorAll('#modal-mobile-nav a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const modal = link.closest('.modal');
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (modal) closeModal(modal);
+                        setTimeout(() => {
+                            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 420);
                     });
                 });
 
@@ -629,6 +788,7 @@
                 const timeCurrent = document.getElementById('time-current');
                 const timeDuration = document.getElementById('time-duration');
                 const errorMsg = document.getElementById('audio-error');
+                const eqBars = document.getElementById('eq-bars');
 
                 function formatTime(seconds) {
                     if (isNaN(seconds)) return "0:00";
@@ -655,6 +815,7 @@
                 audio.addEventListener('ended', () => {
                     iconPause.classList.add('hidden');
                     iconPlay.classList.remove('hidden');
+                    if (eqBars) eqBars.classList.add('is-paused');
                     seekBar.value = 0;
                     audio.currentTime = 0;
                 });
@@ -666,6 +827,7 @@
                             playPromise.then(() => {
                                 iconPlay.classList.add('hidden');
                                 iconPause.classList.remove('hidden');
+                                if (eqBars) eqBars.classList.remove('is-paused');
                             }).catch(err => {
                                 console.warn("Audio konnte nicht gestartet werden:", err);
                                 errorMsg.classList.remove('hidden');
@@ -675,6 +837,7 @@
                         audio.pause();
                         iconPause.classList.add('hidden');
                         iconPlay.classList.remove('hidden');
+                        if (eqBars) eqBars.classList.add('is-paused');
                     }
                 });
 
@@ -863,10 +1026,67 @@
                 window.addEventListener('mouseleave', () => { mouse.active = false; });
             }
 
+            /* --- 5. LESEFORTSCHRITT --- */
+            function setupScrollProgress() {
+                const bar = document.getElementById('scroll-progress');
+                if (!bar) return;
+                function update() {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const pct = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+                    bar.style.transform = `scaleX(${pct})`;
+                }
+                window.addEventListener('scroll', update, { passive: true });
+                window.addEventListener('resize', update);
+                update();
+            }
+
+            /* --- 6. HEADER TIEFENWIRKUNG BEIM SCROLLEN --- */
+            function setupHeaderScrollState() {
+                const header = document.getElementById('site-header');
+                if (!header) return;
+                function update() {
+                    header.classList.toggle('is-scrolled', window.scrollY > 40);
+                }
+                window.addEventListener('scroll', update, { passive: true });
+                update();
+            }
+
+            /* --- 7. ZURÜCK NACH OBEN --- */
+            function setupBackToTop() {
+                const btn = document.getElementById('back-to-top');
+                const footer = document.querySelector('footer');
+                if (!btn) return;
+                let footerVisible = false;
+
+                function update() {
+                    const pastThreshold = window.scrollY > window.innerHeight * 0.7;
+                    btn.classList.toggle('is-visible', pastThreshold && !footerVisible);
+                }
+
+                if (footer && 'IntersectionObserver' in window) {
+                    const footerObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => { footerVisible = entry.isIntersecting; });
+                        update();
+                    }, { threshold: 0.01, rootMargin: "0px 0px -10px 0px" });
+                    footerObserver.observe(footer);
+                }
+
+                btn.addEventListener('click', () => {
+                    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+                });
+                window.addEventListener('scroll', update, { passive: true });
+                update();
+            }
+
             setupModals();
             setupAudioPlayer();
             setupReveal();
             setupCanvas();
+            setupScrollProgress();
+            setupHeaderScrollState();
+            setupBackToTop();
             
         })();
     </script>
