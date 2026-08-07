@@ -17,7 +17,7 @@
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://projekt-sternenstaub.de/leas-spiegelwelten" />
+    <meta property="og:url" content="https://stillerevolution.github.io/Projekt-Sternenstaub_Leas_Spiegelwelten/" />
     <meta property="og:title" content="Projekt Sternenstaub — Leas Spiegelwelten (2026)" />
     <meta property="og:description" content="Interdisziplinäres Handlungs-Manifest für regenerative Ökologie & somatische Resilienz." />
     <meta property="og:site_name" content="Projekt Sternenstaub" />
@@ -29,7 +29,7 @@
 
     <!-- TWITTER / X CARDS -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://projekt-sternenstaub.de/leas-spiegelwelten" />
+    <meta name="twitter:url" content="https://stillerevolution.github.io/Projekt-Sternenstaub_Leas_Spiegelwelten/" />
     <meta name="twitter:title" content="Projekt Sternenstaub — Leas Spiegelwelten" />
     <meta name="twitter:description" content="Vom ökologischen & somatischen Kollaps zur regenerativen Praxis." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" />
@@ -96,7 +96,7 @@
       /* Canvas Partikel */
       #stardust-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
       
-      /* Premium Glassmorphismus & Hover-Übergänge */
+      /* Glassmorphism */
       .glass {
         background: linear-gradient(150deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
         backdrop-filter: blur(24px) saturate(140%);
@@ -117,7 +117,6 @@
         -webkit-background-clip: text; background-clip: text; color: transparent;
       }
       
-      /* Smooth Reveal Animations */
       .reveal { 
         opacity: 0; 
         transform: translateY(30px); 
@@ -128,7 +127,6 @@
       .reveal.delay-300 { transition-delay: 300ms; }
       .reveal-visible { opacity: 1; transform: translateY(0); }
       
-      /* Audio Player Custom Controls */
       input[type=range] {
         -webkit-appearance: none; background: rgba(244, 234, 217, 0.15); height: 6px; border-radius: 3px; cursor: pointer;
       }
@@ -138,7 +136,6 @@
       }
       input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3); }
 
-      /* Modals */
       .no-scroll { overflow: hidden; height: 100%; }
       .modal-backdrop { opacity: 0; transition: opacity 0.5s ease; }
       .modal.modal-active .modal-backdrop { opacity: 1; }
@@ -149,7 +146,6 @@
       }
       .modal.modal-active .modal-panel { opacity: 1; transform: translateY(0) scale(1); }
       
-      /* Image Styling with subtle zoom on hover container */
       .story-image-container {
         overflow: hidden;
         border-radius: 1.5rem;
@@ -226,7 +222,6 @@
         <!-- AUDIO PLAYER SECTION -->
         <section id="audio-section" class="reveal relative max-w-5xl mx-auto px-6 mb-32 group">
             <div class="glass p-8 md:p-12 rounded-[2rem] flex flex-col lg:flex-row items-center gap-10 relative overflow-hidden">
-                <!-- Deko -->
                 <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-gold-500/20 transition-colors duration-700"></div>
 
                 <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left z-10">
@@ -240,7 +235,8 @@
                 </div>
 
                 <div class="w-full lg:w-1/2 glass glass-gold p-6 rounded-2xl z-10">
-                    <audio id="main-audio" src="leas-spiegelwelten.mp3" preload="metadata"></audio>
+                    <!-- FIX: URL-kodierter Dateiname für absolut sauberes Laden auf GitHub Pages -->
+                    <audio id="main-audio" src="leas%20Spiegelwelten.mp3" preload="metadata"></audio>
                     
                     <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
                         <div>
@@ -276,7 +272,7 @@
                     <div class="flex items-center gap-3">
                         <svg class="w-4 h-4 text-gold-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/></svg>
                         <input type="range" id="volume-bar" value="80" min="0" max="100" class="w-24" aria-label="Lautstärke" />
-                        <p id="audio-error" class="hidden text-[10px] text-amber-500 ml-auto">Datei 'leas-spiegelwelten.mp3' fehlt.</p>
+                        <p id="audio-error" class="hidden text-[10px] text-amber-500 ml-auto">Datei 'leas spiegelwelten.mp3' nicht gefunden.</p>
                     </div>
                 </div>
             </div>
@@ -294,7 +290,7 @@
                 </p>
             </section>
 
-            <!-- KAPITEL 1: WACHHUND -->
+            <!-- KAPITEL 1: WACHHUND (FIXED FILENAME FOR GITHUB PAGES) -->
             <section id="kapitel-1" class="reveal grid md:grid-cols-2 gap-12 items-center group">
                 <div class="order-2 md:order-1 space-y-6">
                     <span class="text-xs uppercase tracking-widest text-gold-500 font-bold block transform group-hover:translate-x-2 transition-transform duration-500">Welt 1: Permissiv & Dysregulation</span>
@@ -380,7 +376,7 @@
     <!-- FOOTER -->
     <footer class="relative z-10 border-t border-white/10 py-12 px-6 bg-void-950">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-parchment-100/50 tracking-wide">
-            <p><a href="https://projekt-sternenstaub.de" target="_blank" rel="noopener noreferrer" class="hover:text-gold-500 transition-colors font-bold uppercase">Projekt Sternenstaub</a></p>
+            <p><a href="https://stillerevolution.github.io/Dein-innerer-Kompass-ab-7-Jahre-bis-zum-Finale/" target="_blank" rel="noopener noreferrer" class="hover:text-gold-500 transition-colors font-bold uppercase">Projekt Sternenstaub</a></p>
             <p>Ein Manifest der Co-Regulation & empirischen Strukturierung.</p>
             <button type="button" data-modal-open="modal-exoskelett" class="px-5 py-2 bg-white/5 hover:bg-gold-500/10 border border-white/10 hover:border-gold-500/30 rounded-full text-parchment-100/70 hover:text-gold-500 transition-all font-bold uppercase tracking-widest">
                 Exoskelett (Triangulation)
@@ -484,7 +480,7 @@
                     Wenn du dich also manchmal so fühlst, als hättest du gar keine Kraft mehr, als würdest du am liebsten für immer unter einer dicken Decke verschwinden und auf gar nichts mehr reagieren, dann hat das Opossum das Kommando übernommen. Es versucht, dich unsichtbar zu machen, weil die Welt draußen gerade zu anstrengend ist.
                 </p>
                 <p>
-                    Das Opossum braucht keine lauten Worte und erst recht keinen Druck. Es braucht ganz viel Zeit, vielleicht nur eine warme Hand, eine leise Melodie oder eine dicke Kuscheldecke, um zu spüren, dass es sicher ist und langsam wieder blinzeln darf.
+                    Das Opossum braucht keine lauten Worte und erst recht keinen Druck. Er braucht ganz viel Zeit, vielleicht nur eine warme Hand, eine leise Melodie oder eine dicke Kuscheldecke, um zu spüren, dass es sicher ist und langsam wieder blinzeln darf.
                 </p>
             </div>
         </div>
@@ -583,7 +579,6 @@
                     const modal = document.getElementById(id);
                     if (!modal) return;
                     modal.classList.remove('hidden');
-                    // Force reflow
                     void modal.offsetWidth;
                     modal.classList.add('modal-active');
                     document.body.classList.add('no-scroll');
@@ -594,7 +589,7 @@
                     setTimeout(() => {
                         modal.classList.add('hidden');
                         document.body.classList.remove('no-scroll');
-                    }, 500); // Matches CSS transition duration
+                    }, 500);
                 }
 
                 triggers.forEach(trigger => {
@@ -672,7 +667,7 @@
                                 iconPlay.classList.add('hidden');
                                 iconPause.classList.remove('hidden');
                             }).catch(err => {
-                                console.warn("Audio konnte nicht gestartet werden. Liegt die Datei im selben Ordner?", err);
+                                console.warn("Audio konnte nicht gestartet werden:", err);
                                 errorMsg.classList.remove('hidden');
                             });
                         }
@@ -777,36 +772,30 @@
                                 let force = (INTERACTION_RADIUS - dist) / INTERACTION_RADIUS;
                                 
                                 if (dist < REPULSION_RADIUS) {
-                                    // Repulsion when very close
                                     this.vx -= (dx / dist) * force * 1.5;
                                     this.vy -= (dy / dist) * force * 1.5;
                                 } else {
-                                    // Gentle magnet / swirl
                                     this.vx += (dx / dist) * force * ATTRACT_STRENGTH;
                                     this.vy += (dy / dist) * force * ATTRACT_STRENGTH;
                                 }
                             }
                         }
 
-                        // Cap max speed
                         let speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
                         if (speed > MAX_EXTRA_SPEED) {
                             this.vx = (this.vx / speed) * MAX_EXTRA_SPEED;
                             this.vy = (this.vy / speed) * MAX_EXTRA_SPEED;
                         }
 
-                        // Friction back to base speed
                         this.vx *= FRICTION;
                         this.vy *= FRICTION;
 
-                        // Ensure minimum movement
                         if(Math.abs(this.vx) < 0.05) this.vx += (Math.random() - 0.5) * 0.05;
                         if(Math.abs(this.vy) < 0.05) this.vy += (Math.random() - 0.5) * 0.05;
 
                         this.x += this.vx;
                         this.y += this.vy;
 
-                        // Wraparound
                         if (this.x < -20) this.x = width + 20;
                         if (this.x > width + 20) this.x = -20;
                         if (this.y < -20) this.y = height + 20;
@@ -837,7 +826,7 @@
                             
                             if (distSq < 15000) {
                                 let dist = Math.sqrt(distSq);
-                                let opacity = 1 - (dist / 122); // ~sqrt(15000)
+                                let opacity = 1 - (dist / 122);
                                 if (opacity > 0) {
                                     ctx.beginPath();
                                     ctx.strokeStyle = `rgba(141, 160, 230, ${opacity * 0.15})`;
@@ -874,7 +863,6 @@
                 window.addEventListener('mouseleave', () => { mouse.active = false; });
             }
 
-            // Init all
             setupModals();
             setupAudioPlayer();
             setupReveal();
