@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primäre SEO- & Browser-Metadaten -->
+    <title>Projekt Sternenstaub — Leas Spiegelwelten (2026)</title>
+    <meta name="title" content="Projekt Sternenstaub — Leas Spiegelwelten (2026)" />
+    <meta name="description" content="Vom ökologischen & somatischen Kollaps zur regenerativen Praxis. Leas Spiegelwelten, 360°-Triangulation & Exoskelett-Analytik." />
+    <meta name="author" content="Projekt Sternenstaub" />
+    <meta name="theme-color" content="#060714" />
+
+    <!-- Dynamic SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9a35c' d='M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9a35c' d='M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z'/%3E%3C/svg%3E" />
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://projekt-sternenstaub.de/leas-spiegelwelten" />
+    <meta property="og:title" content="Projekt Sternenstaub — Leas Spiegelwelten (2026)" />
+    <meta property="og:description" content="Interdisziplinäres Handlungs-Manifest für regenerative Ökologie & somatische Resilienz." />
+    <meta property="og:site_name" content="Projekt Sternenstaub" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Projekt Sternenstaub Dark Ambient Banner" />
+
+    <!-- TWITTER / X CARDS -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://projekt-sternenstaub.de/leas-spiegelwelten" />
+    <meta name="twitter:title" content="Projekt Sternenstaub — Leas Spiegelwelten" />
+    <meta name="twitter:description" content="Vom ökologischen & somatischen Kollaps zur regenerativen Praxis." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Projekt Sternenstaub - Leas Spiegelwelten",
+      "headline": "Transformations-Matrix: JETZT vs. ZUKUNFT",
+      "description": "Interdisziplinäres Handlungs-Manifest für regenerative Ökologie & somatische Resilienz.",
+      "author": {
+        "@type": "Organization",
+        "name": "Projekt Sternenstaub"
+      },
+      "inLanguage": "de-DE"
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              void: { 950: '#060714', 900: '#0c0f24' },
+              nebula: { 900: '#10152b', 500: '#3d4a8f' },
+              gold: { 500: '#d9a35c', 300: '#ecc899' },
+              amber: { 500: '#dd7f3e' },
+              parchment: { 100: '#f4ead9' },
+            },
+            fontFamily: {
+              serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+              sans: ['"Atkinson Hyperlegible"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        background-color: #060714;
+        color: #f4ead9;
+        overflow-x: hidden;
+      }
+      
+      ::selection { background: rgba(217, 163, 92, 0.35); color: #060714; }
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #0c0f24; }
+      ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #10152b, #d9a35c); border-radius: 999px; border: 2px solid #0c0f24; }
+      
+      :focus-visible { outline: 2px solid #d9a35c; outline-offset: 3px; border-radius: 2px; }
+      
+      /* Canvas Partikel */
+      #stardust-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+      
+      /* Premium Glassmorphismus & Hover-Übergänge */
+      .glass {
+        background: linear-gradient(150deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+        backdrop-filter: blur(24px) saturate(140%);
+        -webkit-backdrop-filter: blur(24px) saturate(140%);
+        border: 1px solid rgba(217, 163, 92, 0.15);
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass:hover {
+        border-color: rgba(217, 163, 92, 0.4);
+        box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 40px -10px rgba(217, 163, 92, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+        transform: translateY(-4px);
+      }
+      .glass-gold { border-color: rgba(217,163,92,0.30); }
+      
+      .text-gradient {
+        background: linear-gradient(110deg, #f4ead9 8%, #ecc899 35%, #dd7f3e 55%, #f4ead9 85%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      
+      /* Smooth Reveal Animations */
+      .reveal { 
+        opacity: 0; 
+        transform: translateY(30px); 
+        transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
+      }
+      .reveal.delay-100 { transition-delay: 100ms; }
+      .reveal.delay-200 { transition-delay: 200ms; }
+      .reveal.delay-300 { transition-delay: 300ms; }
+      .reveal-visible { opacity: 1; transform: translateY(0); }
+      
+      /* Audio Player Custom Controls */
+      input[type=range] {
+        -webkit-appearance: none; background: rgba(244, 234, 217, 0.15); height: 6px; border-radius: 3px; cursor: pointer;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #d9a35c;
+        box-shadow: 0 0 12px rgba(217, 163, 92, 0.8); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3); }
+
+      /* Modals */
+      .no-scroll { overflow: hidden; height: 100%; }
+      .modal-backdrop { opacity: 0; transition: opacity 0.5s ease; }
+      .modal.modal-active .modal-backdrop { opacity: 1; }
+      .modal-panel { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.95); 
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
+      }
+      .modal.modal-active .modal-panel { opacity: 1; transform: translateY(0) scale(1); }
+      
+      /* Image Styling with subtle zoom on hover container */
+      .story-image-container {
+        overflow: hidden;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(217, 163, 92, 0.2);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        transition: border-color 0.5s ease, box-shadow 0.5s ease;
+      }
+      .story-image-container:hover {
+        border-color: rgba(217, 163, 92, 0.5);
+        box-shadow: 0 20px 50px rgba(217,163,92,0.2);
+      }
+      .story-image {
+        width: 100%; height: auto; object-fit: cover; 
+        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .story-image-container:hover .story-image {
+        transform: scale(1.05);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+        .glass, .story-image, .modal-panel { transition: none !important; transform: none !important; }
+      }
+    </style>
+</head>
+<body class="font-sans antialiased text-parchment-100">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-gold-500 focus:text-void-950 focus:px-5 focus:py-2.5 focus:rounded-full focus:font-medium">Zum Inhalt springen</a>
+    
+    <!-- Partikel Hintergrund -->
+    <canvas id="stardust-canvas" aria-hidden="true"></canvas>
+
+    <!-- Header -->
+    <header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-void-950/80 backdrop-blur-xl border-b border-white/5 transition-colors">
+        <div class="mx-auto max-w-7xl px-6 md:px-8 xl:px-10 flex items-center justify-between h-20">
+            <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-10 h-10 rounded-full bg-nebula-900 border border-gold-500/40 flex items-center justify-center text-gold-500 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_15px_rgba(217,163,92,0.2)]">
+                    ✦
+                </div>
+                <div>
+                    <span class="block font-serif text-lg tracking-wider text-parchment-100 group-hover:text-gold-300 transition-colors duration-300">Leas Spiegelwelten</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-gold-500/60">Projekt Sternenstaub</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide text-parchment-100/80">
+                <a href="#audio-section" class="hover:text-gold-300 transition-colors duration-300">Klangraum</a>
+                <a href="#kapitel-1" class="hover:text-gold-300 transition-colors duration-300">Wachhund</a>
+                <a href="#kapitel-2" class="hover:text-gold-300 transition-colors duration-300">Opossum</a>
+                <a href="#kapitel-3" class="hover:text-gold-300 transition-colors duration-300">Eule & Trio</a>
+                <button type="button" data-modal-open="modal-erziehungsstile" class="px-5 py-2 rounded-full border border-gold-500/30 text-gold-500 hover:bg-gold-500 hover:text-void-950 transition-all duration-300 font-medium hover:shadow-[0_0_20px_rgba(217,163,92,0.4)]">
+                    Die 4 Stile
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1" class="relative z-10 pt-20 pb-24">
+        
+        <!-- HERO -->
+        <section id="hero" class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6">
+            <div class="max-w-4xl mx-auto space-y-10 mt-12">
+                <p class="reveal text-xs md:text-sm uppercase tracking-[0.4em] text-gold-500 font-semibold">Eine biologische Entdeckungsreise</p>
+                <h1 class="reveal delay-100 font-serif text-gradient text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight">
+                    Die Neurobiologie<br/><span class="italic text-gold-300 text-4xl sm:text-5xl md:text-6xl">der inneren Sicherheit.</span>
+                </h1>
+                <p class="reveal delay-200 text-base md:text-xl text-parchment-100/80 leading-relaxed max-w-2xl mx-auto">
+                    Keine Metapher ohne empirischen Grund. Ein tiefer Blick in die Architektur unseres Nervensystems — wie wir Regulation erlernen, Grenzen setzen und zu einem sicheren Raum für uns selbst und andere werden.
+                </p>
+            </div>
+        </section>
+
+        <!-- AUDIO PLAYER SECTION -->
+        <section id="audio-section" class="reveal relative max-w-5xl mx-auto px-6 mb-32 group">
+            <div class="glass p-8 md:p-12 rounded-[2rem] flex flex-col lg:flex-row items-center gap-10 relative overflow-hidden">
+                <!-- Deko -->
+                <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-gold-500/20 transition-colors duration-700"></div>
+
+                <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left z-10">
+                    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold-500 bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20">
+                        <span>🎧 Audio-Manifest</span>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-parchment-100">Leas Spiegelwelten</h2>
+                    <p class="text-sm md:text-base text-parchment-100/70 leading-relaxed">
+                        Ein musikalischer Trost-Anker über den inneren Wachhund, die weise Eule, den Kuscheldeckenmodus und das Versprechen, ein sicherer Gartenzaun zu sein.
+                    </p>
+                </div>
+
+                <div class="w-full lg:w-1/2 glass glass-gold p-6 rounded-2xl z-10">
+                    <audio id="main-audio" src="leas-spiegelwelten.mp3" preload="metadata"></audio>
+                    
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                        <div>
+                            <span class="block text-sm font-bold text-parchment-100">Leas Spiegelwelten</span>
+                            <span class="text-xs text-gold-500/80">Projekt Sternenstaub</span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest px-2 py-1 rounded bg-gold-500/20 text-gold-500 border border-gold-500/30">HQ MP3</span>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-8 mb-6">
+                        <button type="button" id="btn-rewind" aria-label="Zurück" class="p-2 text-parchment-100/60 hover:text-gold-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8L4.066 11.2z"/></svg>
+                        </button>
+
+                        <button type="button" id="btn-play" aria-label="Play/Pause" class="w-16 h-16 rounded-full bg-gradient-to-br from-gold-500 to-amber-500 text-void-950 flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-[0_0_25px_rgba(217,163,92,0.4)] hover:shadow-[0_0_35px_rgba(217,163,92,0.6)]">
+                            <svg id="icon-play" class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="icon-pause" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+
+                        <button type="button" id="btn-forward" aria-label="Vor" class="p-2 text-parchment-100/60 hover:text-gold-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.934 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.334-4zM19.934 12.8a1 1 0 000-1.6l-5.334-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.334-4z"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 mb-4">
+                        <input type="range" id="seek-bar" value="0" min="0" max="100" class="w-full" aria-label="Fortschritt" />
+                        <div class="flex justify-between text-xs text-parchment-100/50">
+                            <span id="time-current">0:00</span>
+                            <span id="time-duration">--:--</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-gold-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/></svg>
+                        <input type="range" id="volume-bar" value="80" min="0" max="100" class="w-24" aria-label="Lautstärke" />
+                        <p id="audio-error" class="hidden text-[10px] text-amber-500 ml-auto">Datei 'leas-spiegelwelten.mp3' fehlt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY SECTIONS -->
+        <div class="max-w-6xl mx-auto px-6 space-y-32">
+
+            <!-- PROLOG -->
+            <section class="reveal max-w-3xl mx-auto text-center space-y-6">
+                <span class="text-xs uppercase tracking-widest text-gold-500 font-bold">Prolog</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-parchment-100">Das Spiegelkabinett der Möglichkeiten</h2>
+                <p class="text-lg text-parchment-100/80 leading-relaxed">
+                    Es war tiefe Nacht, als ein leises Summen den Raum erfüllte. Ein alter, ovaler Spiegel im Flur begann in einem sanften, goldenen Licht zu leuchten. Wer hineinsah, erblickte nicht sein äußeres Gesicht, sondern die Architektur des eigenen Inneren — eine Landschaft aus dichten Wäldern, Alarmglocken und stillen Tälern. Hier nahm die Biologie des Nervensystems physische Gestalt an.
+                </p>
+            </section>
+
+            <!-- KAPITEL 1: WACHHUND -->
+            <section id="kapitel-1" class="reveal grid md:grid-cols-2 gap-12 items-center group">
+                <div class="order-2 md:order-1 space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-bold block transform group-hover:translate-x-2 transition-transform duration-500">Welt 1: Permissiv & Dysregulation</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-parchment-100">Der knurrende Wachhund</h3>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        In einer Landschaft ohne Zäune, in der jeder Impuls sofort erfüllt wird und keine Struktur Orientierung bietet, übernimmt die Amygdala das Kommando. Es ist der innere Wachhund. Er steht unter Dauerstrom.
+                    </p>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Weil das System im Außen keine Führung erfährt — keine liebevollen, aber klaren Grenzen — glaubt der Wachhund, er müsse die gesamte Existenz allein verteidigen. Er knurrt bei jeder Kleinigkeit, unfähig zu ruhen, ständig im Sympathikus-Modus gefangen.
+                    </p>
+                    <button type="button" data-modal-open="modal-wachhund" class="group/btn text-sm font-bold text-gold-500 hover:text-gold-300 transition-colors uppercase tracking-widest flex items-center gap-2 mt-4">
+                        Die Geschichte dahinter <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 story-image-container">
+                    <img src="Knurrender-Wachhund-im-Abendlicht.webp" alt="Ein knurrender Wachhund im Abendlicht" class="story-image" loading="lazy" />
+                </div>
+            </section>
+
+            <!-- KAPITEL 2: OPOSSUM -->
+            <section id="kapitel-2" class="reveal delay-100 grid md:grid-cols-2 gap-12 items-center group">
+                <div class="story-image-container">
+                    <img src="Schlafendes-Opossum-im-Herbstlaub.webp" alt="Ein friedlich schlafendes Opossum im Herbstlaub" class="story-image" loading="lazy" />
+                </div>
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-amber-500 font-bold block transform group-hover:-translate-x-2 transition-transform duration-500">Die Überlastung</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-parchment-100">Das Opossum & die Erstarrung</h3>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Wenn die ständige Wachsamkeit zu viel Energie kostet und das System ausbrennt, greift eine ältere biologische Strategie: Der dorsale Vagus-Kreislauf. Das innere Opossum legt sich ins Laub und spielt tot.
+                    </p>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Dies ist kein Zeichen von Entspannung, sondern von Erstarrung (Freeze). Das System entzieht sich der Reizüberflutung der digitalen Dopamin-Raupe und der Grenzenlosigkeit durch vollständigen Rückzug. Ein Schutzmechanismus, um nicht am eigenen Stress zu zerbrechen.
+                    </p>
+                    <button type="button" data-modal-open="modal-opossum" class="group/btn text-sm font-bold text-amber-500 hover:text-amber-300 transition-colors uppercase tracking-widest flex items-center gap-2 mt-4">
+                        Die Geschichte dahinter <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- KAPITEL 3: EULE -->
+            <section id="kapitel-3" class="reveal delay-100 grid md:grid-cols-2 gap-12 items-center group">
+                <div class="order-2 md:order-1 space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-bold block transform group-hover:translate-x-2 transition-transform duration-500">Welt 2: Autoritativ & Co-Regulation</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-parchment-100">Die weise Eule erwacht</h3>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Erst wenn das äußere Umfeld durch bewusste Co-Regulation eingreift — indem klare Leitplanken gesetzt und ein liebevolles "Nein" als verlässlicher Gartenzaun etabliert wird —, kann der Wachhund sich hinlegen.
+                    </p>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        In diesem Raum der Sicherheit öffnet die weise Eule (der präfrontale Kortex) ihre Augen im goldenen Licht. Hier entsteht echte Lernfähigkeit, Reflexion und Empathie. Die Eule kann nur fliegen, wenn der Sturm der Angst vorüber ist.
+                    </p>
+                    <button type="button" data-modal-open="modal-eule" class="group/btn text-sm font-bold text-gold-500 hover:text-gold-300 transition-colors uppercase tracking-widest flex items-center gap-2 mt-4">
+                        Die Geschichte dahinter <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 story-image-container">
+                    <img src="Fröhliche-Eule-im-goldenen-Waldlicht.webp" alt="Eine fröhliche Eule im goldenen Waldlicht" class="story-image" loading="lazy" />
+                </div>
+            </section>
+
+            <!-- KAPITEL 4: DAS TRIO -->
+            <section class="reveal delay-100 grid md:grid-cols-2 gap-12 items-center group">
+                <div class="story-image-container">
+                    <img src="Schlafendes-Trio-im-warmen-Laternenlicht.webp" alt="Wachhund, Eule und Opossum schlafen friedlich aneinandergekuschelt" class="story-image" loading="lazy" />
+                </div>
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-gold-500 font-bold block transform group-hover:-translate-x-2 transition-transform duration-500">Integration</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-parchment-100">Das schlafende Trio</h3>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Der Kuscheldecken-Modus ist erreicht. Amygdala, dorsaler Vagus und präfrontaler Kortex befinden sich in vollkommener systemischer Balance. Keine Instanz wird verdrängt, alle werden durch einen gefestigten Stamm und tiefe Wurzeln gehalten.
+                    </p>
+                    <p class="text-base text-parchment-100/80 leading-relaxed">
+                        Das ist der Moment, in dem Regulation kein Konzept mehr ist, sondern verkörpertes Wissen. Die Stille im System wird zur aktiven Erholung, getragen von tiefem, innerem Frieden.
+                    </p>
+                    <button type="button" data-modal-open="modal-trio" class="group/btn text-sm font-bold text-gold-500 hover:text-gold-300 transition-colors uppercase tracking-widest flex items-center gap-2 mt-4">
+                        Die Geschichte dahinter <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-white/10 py-12 px-6 bg-void-950">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-parchment-100/50 tracking-wide">
+            <p><a href="https://projekt-sternenstaub.de" target="_blank" rel="noopener noreferrer" class="hover:text-gold-500 transition-colors font-bold uppercase">Projekt Sternenstaub</a></p>
+            <p>Ein Manifest der Co-Regulation & empirischen Strukturierung.</p>
+            <button type="button" data-modal-open="modal-exoskelett" class="px-5 py-2 bg-white/5 hover:bg-gold-500/10 border border-white/10 hover:border-gold-500/30 rounded-full text-parchment-100/70 hover:text-gold-500 transition-all font-bold uppercase tracking-widest">
+                Exoskelett (Triangulation)
+            </button>
+        </div>
+    </footer>
+
+    <!-- ============================================== -->
+    <!-- MODALS (WISSENSCHAFT & GESCHICHTEN)            -->
+    <!-- ============================================== -->
+
+    <!-- Modal Erziehungsstile -->
+    <div id="modal-erziehungsstile" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/80 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-4xl glass rounded-3xl p-8 md:p-12">
+            <button type="button" data-modal-close aria-label="Schließen" class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-8">Die 4 klassischen Erziehungsstile im Spiegel</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Stil 1 -->
+                <div class="bg-void-900/60 p-6 rounded-2xl border border-gold-500/40 hover:border-gold-500 transition-colors">
+                    <h4 class="font-serif text-xl text-gold-500 mb-1">1. Autoritativ (Goldstandard)</h4>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Hohe Wärme + Klare Grenzen</span>
+                    <p class="text-sm text-parchment-100/80 leading-relaxed">
+                        Entspricht der Welt mit dem sicheren Gartenzaun. Feste Leitplanken bei gleichzeitigem tiefem Eingehen auf emotionale Bedürfnisse. Fördert Frustrationstoleranz und Selbstregulation. Die "Weise Eule" kann hier optimal reifen.
+                    </p>
+                </div>
+                <!-- Stil 2 -->
+                <div class="bg-void-900/60 p-6 rounded-2xl border border-amber-500/40 hover:border-amber-500 transition-colors">
+                    <h4 class="font-serif text-xl text-amber-500 mb-1">2. Permissiv</h4>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Hohe Wärme + Kaum Grenzen</span>
+                    <p class="text-sm text-parchment-100/80 leading-relaxed">
+                        Das Fehlen jeglicher Reibung aus Angst vor Konflikten. Das Kind übernimmt unbewusst die Führung, was das Nervensystem chronisch überlastet ("Knurrender Wachhund"). Führt oft zu impulsiver Dysregulation.
+                    </p>
+                </div>
+                <!-- Stil 3 -->
+                <div class="bg-void-900/60 p-6 rounded-2xl border border-white/10 hover:border-white/30 transition-colors">
+                    <h4 class="font-serif text-xl text-parchment-100 mb-1">3. Autoritär</h4>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/50 mb-3">Geringe Wärme + Starre Grenzen</span>
+                    <p class="text-sm text-parchment-100/80 leading-relaxed">
+                        Dominanz und Befehl ohne emotionalen Dialog. Das System des Kindes verharrt in dauerhafter Wachsamkeit vor Bestrafung, echte Co-Regulation findet nicht statt. Anpassung geschieht aus Angst, nicht aus Verständnis.
+                    </p>
+                </div>
+                <!-- Stil 4 -->
+                <div class="bg-void-900/60 p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-colors">
+                    <h4 class="font-serif text-xl text-parchment-100/60 mb-1">4. Vernachlässigend</h4>
+                    <span class="block text-xs uppercase tracking-widest text-parchment-100/40 mb-3">Geringe Wärme + Keine Grenzen</span>
+                    <p class="text-sm text-parchment-100/60 leading-relaxed">
+                        Emotionaler Entzug und Desinteresse der Bezugspersonen. Dies führt zu schweren Regulationsdefiziten, einem geringen Vagaltonus und mangelnder Bindungssicherheit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Wachhund (Kindgerechte Geschichte) -->
+    <div id="modal-wachhund" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/80 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-2xl glass glass-gold rounded-3xl p-8 md:p-12">
+            <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-gold-500 font-bold mb-2 block">Eine Geschichte für Klein & Groß</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-6">Bronko, der kleine Beschützer</h3>
+            <div class="space-y-5 text-parchment-100/90 leading-relaxed text-base">
+                <p>
+                    Stell dir vor, tief in dir drinnen wohnt ein kleiner, tapferer Wachhund namens Bronko. Bronko hat einen ganz wichtigen Job: Er hat dich unendlich lieb und will dich um jeden Preis beschützen!
+                </p>
+                <p>
+                    Aber manchmal, wenn alles im Alltag zu laut, zu schnell oder einfach zu viel wird, bekommt Bronko Angst. Er denkt dann, er müsse ganz allein auf alles aufpassen. Dann fängt er laut an zu bellen und knurrt in alle Richtungen – das ist der Moment, in dem du vielleicht wütend wirst, weinen möchtest oder richtig laut schreist. Bronko macht das nicht, um dich zu ärgern, er ist einfach nur überfordert.
+                </p>
+                <p>
+                    Was Bronko dann am meisten braucht, ist keine Schimpfe. Er braucht einen großen, ruhigen Kapitän an Bord – einen Erwachsenen, der sich zu ihm setzt, tief durchatmet und mit fester, aber weicher Stimme sagt: <em class="text-gold-300">„Alles ist gut, Bronko. Du musst jetzt nicht aufpassen. Ich übernehme das Steuer.“</em> 
+                </p>
+                <p>
+                    Wenn Bronko merkt, dass jemand anderes verlässlich das Ruder in der Hand hält, legt er den Kopf auf seine Pfoten, macht einen tiefen Seufzer und entspannt sich.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Opossum (Kindgerechte Geschichte) -->
+    <div id="modal-opossum" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/80 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-2xl glass glass-gold rounded-3xl p-8 md:p-12">
+            <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 block">Eine Geschichte für Klein & Groß</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-6">Das versteckte Opossum</h3>
+            <div class="space-y-5 text-parchment-100/90 leading-relaxed text-base">
+                <p>
+                    Manchmal ist das Beschützen und Bellen für den inneren Wachhund so schrecklich anstrengend, dass ihm komplett die Puste ausgeht. Wenn der Stress gar nicht mehr aufhört, taucht plötzlich ein anderes Tier auf: das kleine Opossum.
+                </p>
+                <p>
+                    Opossums haben in der Natur einen ganz besonderen Trick, um sich vor Gefahr zu schützen: Sie stellen sich tot. Sie rühren sich nicht, atmen ganz flach und warten ab, bis der Sturm vorbeigezogen ist.
+                </p>
+                <p>
+                    Wenn du dich also manchmal so fühlst, als hättest du gar keine Kraft mehr, als würdest du am liebsten für immer unter einer dicken Decke verschwinden und auf gar nichts mehr reagieren, dann hat das Opossum das Kommando übernommen. Es versucht, dich unsichtbar zu machen, weil die Welt draußen gerade zu anstrengend ist.
+                </p>
+                <p>
+                    Das Opossum braucht keine lauten Worte und erst recht keinen Druck. Es braucht ganz viel Zeit, vielleicht nur eine warme Hand, eine leise Melodie oder eine dicke Kuscheldecke, um zu spüren, dass es sicher ist und langsam wieder blinzeln darf.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eule (Kindgerechte Geschichte) -->
+    <div id="modal-eule" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/80 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-2xl glass glass-gold rounded-3xl p-8 md:p-12">
+            <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-gold-500 font-bold mb-2 block">Eine Geschichte für Klein & Groß</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-6">Die Eule im goldenen Licht</h3>
+            <div class="space-y-5 text-parchment-100/90 leading-relaxed text-base">
+                <p>
+                    Stell dir vor: Der knurrende Wachhund hat sich beruhigt, und das kleine Opossum traut sich wieder aus seinem Versteck. Genau in diesem friedlichen Moment öffnet hoch oben in deinem inneren Baum die weise Eule ihre großen, runden Augen.
+                </p>
+                <p>
+                    Die Eule ist super schlau! Sie hilft dir dabei, gute Lösungen für Probleme zu finden, neue Dinge zu lernen, schöne Worte zu wählen und mit deinen Freunden zu sprechen, wenn ihr euch mal gestritten habt. Sie überblickt den ganzen Wald.
+                </p>
+                <p>
+                    Aber es gibt eine wichtige Regel: <em class="text-gold-300">Die Eule kann nur fliegen, wenn der Sturm vorbei ist!</em> 
+                </p>
+                <p>
+                    Wenn der Wachhund bellt oder das Opossum sich versteckt, klappt die Eule ihre Flügel fest zusammen und macht die Augen zu. Deshalb ist es so wichtig, sich immer erst eine kleine Auszeit zu nehmen und durchzuatmen. Erst wenn du dich wieder sicher fühlst, ist die Eule bereit, loszufliegen und dir ihre klugen Ideen ins Ohr zu flüstern.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Trio (Kindgerechte Geschichte) -->
+    <div id="modal-trio" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/80 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-2xl glass glass-gold rounded-3xl p-8 md:p-12">
+            <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-gold-500 font-bold mb-2 block">Eine Geschichte für Klein & Groß</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-6">Das schlafende Trio & der Garten</h3>
+            <div class="space-y-5 text-parchment-100/90 leading-relaxed text-base">
+                <p>
+                    Das allerschönste Geheimnis ist folgendes: Der Wachhund, das Opossum und die Eule müssen sich eigentlich gar nicht streiten. Sie alle gehören zu dir und machen dich zu dem wunderbaren Menschen, der du bist.
+                </p>
+                <p>
+                    Stell dir vor, die Erwachsenen um dich herum bauen einen großen, starken, aber ganz liebevollen Gartenzaun. Und hinter diesem Gartenzaun befindet sich kein langweiliger, künstlicher Rasen, sondern eine riesige, wilde Wiese! Dort wachsen bunte Blumen, hohe Gräser und heimische Pflanzen, in denen sich Schmetterlinge und Käfer tummeln. Es ist ein Raum, der genau so sein darf, wie die Natur ihn erdacht hat.
+                </p>
+                <p>
+                    Weil dieser Zaun so sicher ist, wissen deine inneren Tiere, dass keine Gefahr droht. Bronko legt seinen Kopf friedlich auf die Pfoten, das Opossum rollt sich gemütlich zusammen und die Eule schließt zufrieden ein Auge. Sie kuscheln sich aneinander und schlafen friedlich im warmen Licht.
+                </p>
+                <p>
+                    Wenn dieses Trio so entspannt zusammen liegt, spürst du tief in dir drinnen eine große Ruhe. Du fühlst dich stark, wild und geborgen – wie der schönste, natürlichste Garten der Welt.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exoskelett (Meta-Modal) -->
+    <div id="modal-exoskelett" class="modal hidden fixed inset-0 z-[100] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="modal-backdrop absolute inset-0 bg-void-950/90 backdrop-blur-xl" data-modal-close></div>
+        <div class="modal-panel relative mx-auto my-10 md:my-20 w-[calc(100%-2rem)] max-w-3xl glass rounded-3xl p-8 md:p-12 border-t-[6px] border-t-void-900">
+            <button type="button" data-modal-close class="absolute top-6 right-6 text-parchment-100/60 hover:text-gold-500 transition-transform hover:rotate-90 duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-parchment-100/50 font-bold mb-2 block">Systemische Selbstreflexion</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-parchment-100 mb-8">Das Exoskelett & Triangulation</h3>
+            
+            <div class="space-y-6 text-sm text-parchment-100/80 leading-relaxed border-l-2 border-gold-500/30 pl-6">
+                <div class="hover:bg-white/5 p-4 rounded-xl transition-colors">
+                    <h4 class="font-bold text-gold-500 uppercase tracking-widest text-xs mb-1">1. Grenzen der Modelle</h4>
+                    <p>Allegorien wie der "Wachhund" oder die "Eule" sind didaktische Vereinfachungen für hochkomplexe neuronale Netzwerke. Die reine Polyvagal-Theorie steht in der empirischen Neurophysiologie teils in der Kritik, da die genaue Dreiteilung des Vagusnervs sich in harten Messdaten nicht immer replizieren lässt. Wir nutzen es hier primär als wirkungsvolles heuristisches Modell für klinische Praxis und Selbstverständnis.</p>
+                </div>
+                <div class="hover:bg-white/5 p-4 rounded-xl transition-colors">
+                    <h4 class="font-bold text-gold-500 uppercase tracking-widest text-xs mb-1">2. Gegenstimmen (Falsifikation)</h4>
+                    <p>Kritiker aus der genombasierten Verhaltensforschung und Zwillingsstudien betonen die starke Erblichkeit von Temperament und emotionaler Reaktivität. Ein dysreguliertes System ist nicht zwingend allein das Resultat fehlender elterlicher Co-Regulation oder permissiver Erziehung; genetische Prädispositionen (die neurobiologische Grundkonstitution) haben einen enormen Eigenanteil, der durch Verhalten allein nicht überschrieben werden kann.</p>
+                </div>
+                <div class="hover:bg-white/5 p-4 rounded-xl transition-colors">
+                    <h4 class="font-bold text-gold-500 uppercase tracking-widest text-xs mb-1">3. Systemische Optimierung (Klo-Regulierung)</h4>
+                    <p>Das Konzept der kindlichen Regulation lässt sich am effektivsten über die Eltern selbst optimieren. Niemand kann erfolgreich ko-regulieren, wenn das eigene Nervensystem im chronischen Sympathikus-Stress feststeckt ("Klo-Regulierung" als Metapher für den kurzen Moment des Durchatmens allein). Die Arbeit beginnt systemisch betrachtet immer zwingend bei der Regulation der erwachsenen Umwelt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Engine -->
+    <script>
+        (function() {
+            'use strict';
+
+            /* --- 1. MODAL SYSTEM --- */
+            function setupModals() {
+                const triggers = document.querySelectorAll('[data-modal-open]');
+                const closers = document.querySelectorAll('[data-modal-close]');
+                
+                function openModal(id) {
+                    const modal = document.getElementById(id);
+                    if (!modal) return;
+                    modal.classList.remove('hidden');
+                    // Force reflow
+                    void modal.offsetWidth;
+                    modal.classList.add('modal-active');
+                    document.body.classList.add('no-scroll');
+                }
+
+                function closeModal(modal) {
+                    modal.classList.remove('modal-active');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        document.body.classList.remove('no-scroll');
+                    }, 500); // Matches CSS transition duration
+                }
+
+                triggers.forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openModal(trigger.dataset.modalOpen);
+                    });
+                });
+
+                closers.forEach(closer => {
+                    closer.addEventListener('click', (e) => {
+                        const modal = closer.closest('.modal');
+                        if(modal) closeModal(modal);
+                    });
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        const activeModal = document.querySelector('.modal.modal-active');
+                        if(activeModal) closeModal(activeModal);
+                    }
+                });
+            }
+
+            /* --- 2. AUDIO PLAYER --- */
+            function setupAudioPlayer() {
+                const audio = document.getElementById('main-audio');
+                if(!audio) return;
+                
+                const btnPlay = document.getElementById('btn-play');
+                const btnRewind = document.getElementById('btn-rewind');
+                const btnForward = document.getElementById('btn-forward');
+                const iconPlay = document.getElementById('icon-play');
+                const iconPause = document.getElementById('icon-pause');
+                const seekBar = document.getElementById('seek-bar');
+                const volumeBar = document.getElementById('volume-bar');
+                const timeCurrent = document.getElementById('time-current');
+                const timeDuration = document.getElementById('time-duration');
+                const errorMsg = document.getElementById('audio-error');
+
+                function formatTime(seconds) {
+                    if (isNaN(seconds)) return "0:00";
+                    const m = Math.floor(seconds / 60);
+                    const s = Math.floor(seconds % 60);
+                    return m + ":" + (s < 10 ? "0" : "") + s;
+                }
+
+                audio.addEventListener('loadedmetadata', () => {
+                    timeDuration.textContent = formatTime(audio.duration);
+                });
+
+                audio.addEventListener('error', () => {
+                    errorMsg.classList.remove('hidden');
+                });
+
+                audio.addEventListener('timeupdate', () => {
+                    timeCurrent.textContent = formatTime(audio.currentTime);
+                    if(audio.duration) {
+                        seekBar.value = (audio.currentTime / audio.duration) * 100;
+                    }
+                });
+
+                audio.addEventListener('ended', () => {
+                    iconPause.classList.add('hidden');
+                    iconPlay.classList.remove('hidden');
+                    seekBar.value = 0;
+                    audio.currentTime = 0;
+                });
+
+                btnPlay.addEventListener('click', () => {
+                    if (audio.paused) {
+                        const playPromise = audio.play();
+                        if (playPromise !== undefined) {
+                            playPromise.then(() => {
+                                iconPlay.classList.add('hidden');
+                                iconPause.classList.remove('hidden');
+                            }).catch(err => {
+                                console.warn("Audio konnte nicht gestartet werden. Liegt die Datei im selben Ordner?", err);
+                                errorMsg.classList.remove('hidden');
+                            });
+                        }
+                    } else {
+                        audio.pause();
+                        iconPause.classList.add('hidden');
+                        iconPlay.classList.remove('hidden');
+                    }
+                });
+
+                btnRewind.addEventListener('click', () => {
+                    audio.currentTime = Math.max(0, audio.currentTime - 10);
+                });
+
+                btnForward.addEventListener('click', () => {
+                    if(audio.duration) {
+                        audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+                    }
+                });
+
+                seekBar.addEventListener('input', () => {
+                    if(audio.duration) {
+                        audio.currentTime = (seekBar.value / 100) * audio.duration;
+                    }
+                });
+
+                volumeBar.addEventListener('input', () => {
+                    audio.volume = volumeBar.value / 100;
+                });
+                
+                audio.volume = 0.8;
+            }
+
+            /* --- 3. SCROLL REVEAL OBSERVER --- */
+            function setupReveal() {
+                const reveals = document.querySelectorAll('.reveal');
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('reveal-visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+                    
+                    reveals.forEach(r => observer.observe(r));
+                } else {
+                    reveals.forEach(r => r.classList.add('reveal-visible'));
+                }
+            }
+
+            /* --- 4. HIGH-PERFORMANCE PARTICLE CANVAS ENGINE --- */
+            function setupCanvas() {
+                const canvas = document.getElementById('stardust-canvas');
+                if(!canvas) return;
+                const ctx = canvas.getContext('2d');
+                
+                const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if(isReducedMotion) return;
+
+                let width, height, particles = [];
+                let mouse = { x: -9999, y: -9999, active: false };
+                
+                const PARTICLE_COUNT = window.innerWidth < 768 ? 60 : 120;
+                const BASE_SPEED = 0.15;
+                const FRICTION = 0.96;
+                const ATTRACT_STRENGTH = 0.08;
+                const REPULSION_RADIUS = 60;
+                const INTERACTION_RADIUS = 250;
+                const MAX_EXTRA_SPEED = 3.5;
+                
+                function resize() {
+                    width = canvas.width = window.innerWidth;
+                    height = canvas.height = window.innerHeight;
+                }
+
+                class Stardust {
+                    constructor() {
+                        this.reset(true);
+                    }
+                    
+                    reset(randomizeParams = false) {
+                        this.x = Math.random() * width;
+                        this.y = Math.random() * height;
+                        if (randomizeParams) {
+                            this.vx = (Math.random() - 0.5) * BASE_SPEED;
+                            this.vy = (Math.random() - 0.5) * BASE_SPEED;
+                            this.radius = Math.random() * 1.8 + 0.5;
+                            this.baseAlpha = Math.random() * 0.5 + 0.1;
+                            this.isGold = Math.random() < 0.15;
+                        }
+                    }
+
+                    update() {
+                        if (mouse.active) {
+                            let dx = mouse.x - this.x;
+                            let dy = mouse.y - this.y;
+                            let dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+
+                            if (dist < INTERACTION_RADIUS) {
+                                let force = (INTERACTION_RADIUS - dist) / INTERACTION_RADIUS;
+                                
+                                if (dist < REPULSION_RADIUS) {
+                                    // Repulsion when very close
+                                    this.vx -= (dx / dist) * force * 1.5;
+                                    this.vy -= (dy / dist) * force * 1.5;
+                                } else {
+                                    // Gentle magnet / swirl
+                                    this.vx += (dx / dist) * force * ATTRACT_STRENGTH;
+                                    this.vy += (dy / dist) * force * ATTRACT_STRENGTH;
+                                }
+                            }
+                        }
+
+                        // Cap max speed
+                        let speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+                        if (speed > MAX_EXTRA_SPEED) {
+                            this.vx = (this.vx / speed) * MAX_EXTRA_SPEED;
+                            this.vy = (this.vy / speed) * MAX_EXTRA_SPEED;
+                        }
+
+                        // Friction back to base speed
+                        this.vx *= FRICTION;
+                        this.vy *= FRICTION;
+
+                        // Ensure minimum movement
+                        if(Math.abs(this.vx) < 0.05) this.vx += (Math.random() - 0.5) * 0.05;
+                        if(Math.abs(this.vy) < 0.05) this.vy += (Math.random() - 0.5) * 0.05;
+
+                        this.x += this.vx;
+                        this.y += this.vy;
+
+                        // Wraparound
+                        if (this.x < -20) this.x = width + 20;
+                        if (this.x > width + 20) this.x = -20;
+                        if (this.y < -20) this.y = height + 20;
+                        if (this.y > height + 20) this.y = -20;
+                    }
+
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = this.isGold ? `rgba(217, 163, 92, ${this.baseAlpha})` : `rgba(214, 222, 255, ${this.baseAlpha})`;
+                        ctx.fill();
+                    }
+                }
+
+                function initParticles() {
+                    particles = [];
+                    for(let i = 0; i < PARTICLE_COUNT; i++) {
+                        particles.push(new Stardust());
+                    }
+                }
+
+                function drawConnections() {
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            let dx = particles[i].x - particles[j].x;
+                            let dy = particles[i].y - particles[j].y;
+                            let distSq = dx * dx + dy * dy;
+                            
+                            if (distSq < 15000) {
+                                let dist = Math.sqrt(distSq);
+                                let opacity = 1 - (dist / 122); // ~sqrt(15000)
+                                if (opacity > 0) {
+                                    ctx.beginPath();
+                                    ctx.strokeStyle = `rgba(141, 160, 230, ${opacity * 0.15})`;
+                                    ctx.lineWidth = 0.5;
+                                    ctx.moveTo(particles[i].x, particles[i].y);
+                                    ctx.lineTo(particles[j].x, particles[j].y);
+                                    ctx.stroke();
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, width, height);
+                    for (let p of particles) {
+                        p.update();
+                        p.draw();
+                    }
+                    drawConnections();
+                    requestAnimationFrame(animate);
+                }
+
+                resize();
+                initParticles();
+                animate();
+
+                window.addEventListener('resize', () => { resize(); initParticles(); });
+                window.addEventListener('mousemove', (e) => {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                    mouse.active = true;
+                });
+                window.addEventListener('mouseleave', () => { mouse.active = false; });
+            }
+
+            // Init all
+            setupModals();
+            setupAudioPlayer();
+            setupReveal();
+            setupCanvas();
+            
+        })();
+    </script>
+</body>
+</html>
